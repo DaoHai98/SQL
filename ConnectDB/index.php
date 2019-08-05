@@ -23,7 +23,7 @@ $result = $connection->query($sqlSelect);
         <div class="col-md-12">
             <h1>Liệt kê danh sách nhân viên</h1>
             <h1>
-                <a href="create.php" class="btn btn-success">Thêm mới nhân viên</a>
+                <a href="create.php" class="btn btn-info">Thêm mới nhân viên</a>
             </h1>
             <table class="table">
                 <thead>
@@ -49,14 +49,17 @@ $result = $connection->query($sqlSelect);
                      * và trả về cho biến $row
                       */
                     while($row = $result->fetch_assoc()) {
+                        echo"<pre>";
+                        print_r($row);
                         ?>
+
                         <tr>
                             <td><?php echo $row["id"] ?></td>
                             <td><?php echo $row["name"] ?></td>
                             <td><?php echo $row["address"] ?></td>
                             <td><?php echo $row["salary"] ?></td>
                             <td>
-                                <p><a href="edit.php?id=<?php echo $row["id"] ?>" class="btn btn-warning">Sửa nhân viên</a> </p>
+                                <p><a href="edit.php?id=<?php echo $row["id"] ?>" class="btn btn-success">Sửa nhân viên</a> </p>
                                 <p><a href="delete.php?id=<?php echo $row["id"] ?>" class="btn btn-danger">Xóa nhân viên</a> </p>
                             </td>
                         </tr>
