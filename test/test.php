@@ -9,8 +9,8 @@
 <body>
 <?php
 // nạp file kết nối CSDL
-include_once "config.php";
-$sqlSelect = "SELECT * FROM employees";
+include_once "config2.php";
+$sqlSelect = "SELECT * FROM product";
 /**
  * Thực hiện câu truy vấn và trả data cho biến $result
  */
@@ -21,18 +21,20 @@ $result = $connection->query($sqlSelect);
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Liệt kê danh sách nhân viên</h1>
+            <h1>Liệt kê danh sách sản phẩm</h1>
             <h1>
-                <a href="create2.php" class="btn btn-info">Thêm mới nhân viên</a>
+                <a href="create.php" class="btn btn-info">Thêm mới sản phẩm</a>
             </h1>
             <table class="table">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tên</th>
-                    <th>Địa chỉ</th>
-                    <th>Lương</th>
-                    <th>Hành động</th>
+                    <th>product_title1</th>
+                    <th>product_desc</th>
+                    <th>created</th>
+                    <th>price</th>
+                    <th>quantity</th>
+                    <th>status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,17 +52,20 @@ $result = $connection->query($sqlSelect);
                       */
                     while($row = $result->fetch_assoc()) {
                         echo"<pre>";
-                        print_r($row);
+
                         ?>
 
                         <tr>
                             <td><?php echo $row["id"] ?></td>
-                            <td><?php echo $row["name"] ?></td>
-                            <td><?php echo $row["address"] ?></td>
-                            <td><?php echo $row["salary"] ?></td>
+                            <td><?php echo $row["product_title1"] ?></td>
+                            <td><?php echo $row["product_desc"] ?></td>
+                            <td><?php echo $row["created"] ?></td>
+                            <td><?php echo $row["price"] ?></td>
+                            <td><?php echo $row["quantity"] ?></td>
+                            <td><?php echo $row["status"] ?></td>
                             <td>
-                                <p><a href="edit2.php?id=<?php echo $row["id"] ?>" class="btn btn-success">Sửa nhân viên</a> </p>
-                                <p><a href="delete2.php?id=<?php echo $row["id"] ?>" class="btn btn-danger">Xóa nhân viên</a> </p>
+                                <p><a href="edit.php?id=<?php echo $row["id"] ?>" class="btn btn-success">Sửa sản phẩm</a> </p>
+                                <p><a href="delete.php?id=<?php echo $row["id"] ?>" class="btn btn-danger">Xóa sản phẩm</a> </p>
                             </td>
                         </tr>
                         <?php
