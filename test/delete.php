@@ -74,7 +74,7 @@ Xóa sản phẩm thất bại !
                 <div class="form-group">
                     <label>Tên sản phẩm: <?= $row["product_title1"] ?></label>
                 </div>
-                <button type="submit" class="btn btn-danger">xóa sản phẩm</button>
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa dữ liệu không')">xóa sản phẩm</button>
             </form>
 
         </div>
